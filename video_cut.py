@@ -3,7 +3,15 @@ import numpy as np
 import os
 import sys
 
+def get_input(info,default,default_type):
+    t = raw_input(info)
+    if t == '':
+        return default_type(default)
+    else:
+        return default_type(t)
+
 def cut_sub_video(video_file, start_idx, end_idx, save_file, bbox = None):
+    stride = get_input('input stride[1]:',1,int)
     cap = cv2.VideoCapture(video_file)
     for i in range(start_idx+1):
         ret, frame = cap.read()
@@ -19,8 +27,9 @@ def cut_sub_video(video_file, start_idx, end_idx, save_file, bbox = None):
             writer.write(frame[bbox[1]:bbox[3],bbox[0]:bbox[2]])
         else:
             writer.write(frame)
-        ret, frame = cap.read()
-        idx+=1
+        for i in range(stride):
+            ret, frame = cap.read()
+            idx+=1
 
 
 bbox = [-1,-1,-1,-1]
