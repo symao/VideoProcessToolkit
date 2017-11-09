@@ -17,7 +17,7 @@ Scripts
 
 How to use
 -------------------
-'''python
+```python
     video_tool.py input_video [-c | -v | -d DOWNSAMPLE | -r RESIZE | -a APPEND | -i INSERT | -t TOIMAGES] [-o OUTPUT]
     # cut/crop video
     video_tool.py input.avi -c
@@ -33,4 +33,4 @@ How to use
     video_tool.py video1.avi -i video2.avi -o output.avi
     # convert video to images
     video_tool.py video.avi -t image_save_dir
-'''
+```
