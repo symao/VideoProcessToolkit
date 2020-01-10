@@ -14,6 +14,16 @@ def video_dowmsample(video_file, downsample, save_file):
         for i in range(int(downsample)):
             ret, frame = cap.read()
 
+    # rate = 13.0/20;
+    # cnt = 0
+    # k = 0
+    # while ret:
+    #     if int(k) >= cnt:
+    #         writer.write(frame)
+    #         cnt += 1
+    #     k += rate
+    #     # for i in range(int(downsample)):
+    #     ret, frame = cap.read()
 
 if __name__ == '__main__':
     if len(sys.argv) == 4:
